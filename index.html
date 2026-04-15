@@ -208,8 +208,9 @@ main {
 
 <section id="contact" class="section">
   <h2>Contact</h2>
-  <p>Email: your@email.com</p>
-  <p>GitHub: github.com/YOUR_GITHUB_USERNAME</p>
+  <p>Email: sidarthsharma010@gmail.com</p>
+  <a href="mailto:sidarthsharma010@gmail.com?subject=Hiring Inquiry&body=Hi Sidarth, I saw your portfolio..." class="btn">Hire me</a>
+  <p>GitHub: https://github.com/siddharth-sharrma</p>
 </section>
 
 </main>
@@ -275,7 +276,7 @@ toggle.addEventListener("click", () => {
 });
 
 //load saved themes
-setTheme(localStorage.getItem("theme") || "dark");
+setTheme(localStorage.getItem("theme") || "light");
 
 //Events
 
@@ -298,6 +299,15 @@ document.addEventListener("keydown", (e) => {
 //INIT
 setActive("mission");
 loadRepos();
+// opening the site first in light mode
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme) {
+  setTheme(savedTheme);
+} else {
+  setTheme("light");
+}
+
+localStorage.removeItem("theme");
 </script>
 
 </body>
