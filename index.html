@@ -1,245 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend Developer Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f0f0f;
-            color:white;
-            line-height: 1.6;
-        }
-        nav h3 {
-            color: orange;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-        /* hero */
-        .hero {
-            min-height: 40vh;
-            
-            display: flex;
-            /* justify-content: center; */
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            
-        }
-        .hero span {
-            color: orange;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        }
-        /* section */
-        section{
-            /* padding: 60px 20px; */
-            
-        }
-        /* about */
-        #about {
-            min-height: 50vh;
-        }
-        .about {
-            display: flex;
-            /* max-width: 700px; */
-            margin: auto;
-            text-align: center;
-            
-        }
-        .card {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 20px;
-            transition: 0.3;
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            border: 4px solid orange;
-        }
-        /* skills */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        .skill {
-            border: 1px solid orange;
-            padding: 10px 20px;
-            border-radius: 20px;
-        }
-        /* projects */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
-            gap:20px;
-        }
-        /* contact */
-        .contact{
-            text-align: center;
-        }
-        /* button */
-        button{
-            padding: 10px 20px;
-            border: none;
-            background: orange;
-            color: black;
-            cursor: pointer;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-        .btn {
-            background: orange;
-            color: black;
-            padding: 1px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: darkorange;
-        }
-        /* mobile */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            nav div {
-                margin-top: 10px;
-            }
-            .hero {
-                min-height: 40vh;
-            }
-            #about {
-                min-height: 50vh;
-            }
-        }
-/*         
-        #div1 {
-            display: flex;
-        }
-    
-        #img {
-            opacity: 0.3;border: 20px solid rgb(218, 113, 0);left: -5%;top: 50%;
-            position: absolute;transform: translateY(-50%);
-            border-top-right-radius: 20px;border-bottom-right-radius: 20px;
-        } */
-    </style>
+<title>Your Name | Software Developer</title>
+
+<meta name="description" content="Software Developer specializing in JavaScript, frontend engineering, and scalable applications." />
+
+<meta property="og:title" content="Your Name | Software Developer" />
+<meta property="og:description" content="Frontend Developer Portfolio with live GitHub projects" />
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #1a1208;
+  --panel: rgba(50,30,10,0.6);
+  --text: #c2a36b;
+  --gold: #e0c060;
+  --accent: #ffcc66;
+  --border: #8a5a2b;
+}
+
+body.light {
+  --bg: #f4f1ea;
+  --panel: #ffffff;
+  --text: #2b2b2b;
+  --gold: #444;
+  --accent: #b8860b;
+  --border: #ccc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  color: var(--gold);
+  font-size: clamp(16px, 2.5vw, 26px);
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border: 3px solid var(--gold);
+}
+
+.avatar img {  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.avatar:hover{
+    scale: 1.19;
+    border-color: var(--border);
+}
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+
+button:hover,
+button.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+main {
+  border: 2px solid var(--gold);
+  background: var(--panel);
+  padding: 20px;
+  min-height: 320px;
+}
+
+/* SECTIONS */
+.section { display: none; }
+.section.active { display: block; }
+
+/* PROJECTS */
+.project {
+  border: 1px solid var(--border);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.project a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* BUTTONS TOP */
+.top-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.toggle {
+  font-size: 10px;
+  padding: 8px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+</style>
 </head>
+
 <body>
-    <nav>
-        <h3>Portfolio</h3>
-        <div>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-    <!-- hero -->
-    <div class="hero">
-        <h1>Hi, I'm <span>Sidarth Sharma</span></h1>
-        <p>Frontend Developer building interactive web experiences</p>
-        
-        
+
+<div class="container">
+
+<header>
+  <div>
+    <h1>Sidarth Sharma</h1>
+    <p>Software Developer</p>
+  </div>
+
+  <div class="top-actions">
+    <button class="toggle" id="themeToggle">Toggle Theme</button>
+
+    <div class="avatar">
+      <img src="IMG_20260327_044812-01.jpeg" alt="Profile">
     </div>
+  </div>
+</header>
+
+<div class="layout">
+
+<nav>
+  <button data-section="mission" class="active">Mission</button>
+  <button data-section="projects">Projects</button>
+  <button data-section="skills">Skills</button>
+  <button data-section="contact">Contact</button>
+</nav>
+
+<main>
+
+<section id="mission" class="section active">
+  <h2>Mission</h2>
+  <p>
+    I build scalable,high-performance web applications with clean architecture.I enjoy creating visually enganging web experiences and continously improving my skills.
+  </p>
+</section>
+
+<section id="projects" class="section">
+  <h2>Projects (Live GitHub)</h2>
+  <div id="repoList">Loading projects...</div>
+</section>
+
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <p>JavaScript</p>
+  <p>HTML / CSS</p>
+  <p>Node.js</p>
+  <p>React</p>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>GitHub: github.com/YOUR_GITHUB_USERNAME</p>
+</section>
+
+</main>
+
 </div>
-<!-- about -->
-<section id="about">
-    <div class="about">
-            <div class="card"><div>
+</div>
 
-                <img id="img" src="/IMG_20260327_044812-01.jpeg" alt="Projects">
-                <h3>Portfolio Website</h3>
-            </div>
-            
-        </div>
-        <div>
+<script>
+const state = {
+  active: "mission"
+};
 
-            <h2>About Me</h2>
-                <p>
-                    I am a frontend developer focused on building clean, responsive, and interactive user interfaces using HTML, CSS and Javascript. I enjoy creating visually enganging web experiences and continously improving my skills.
-    
-                </p>
-        </div>
+const buttons = document.querySelectorAll("nav button[data-section]");
+const sections = document.querySelectorAll(".section");
+const repoList = document.getElementById("repoList");
 
-     </section>
-     <!-- skills -->
-      <section>
-        <h2 style="text-align: center;">Skills</h2>
-        <div class="skills">
-            <div class="skill">Html</div>
-            <div class="skill">CSS</div>
-            <div class="skill">Javascript</div>
-            <div class="skill">React</div>
-            <div class="skill">Tailwind CSS</div>
-        </div>
-      </section>
-      <!-- projects -->
-      <section id="projects">
-        <h2 style="text-align: center;">Projects</h2>
-        <div class="projects">
-        </div>
-      </section>
-      <!-- contact -->
-       <section id="contact">
-        <div class="contact">
-            <h2>Contact</h2>
-            <p>Email: sharmasidarth010@gmail.com</p>
-            <!-- <button onclick="alert('Email me!')">Hire Me</button> -->
-            <a href="mailto:sidarthsharma010@gmail.com?subject=Hiring Inquiry&body=Hi Sidarth, I saw your portfolio..." class="btn">
-                Hire Me
-            </a>
-        </div>
-       </section>
-    <div id="div1">
+//Navigation
 
-    </div>
-   
-    <!-- <script>
-        const canvas = document.createElement("canvas");
-        document.body.appendChild(canvas);
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        canvas.style.position = "absolute"; -->
+function setActive(section) {
+  state.active = section;
 
-        <!-- // const img = new Image();
-        // img.src = "/IMG_20260327_044812-01.jpeg";
-        // img.onload = function () {
-        //     const size = Math.max(200, Math.min(canvas.width * 0.3, 400));
-        //     ctx.drawImage(img, 0, (canvas.height - size)/2, size,size);
-        // };
-        //image
-        // const img = document.getElementById("img"); 
-        // img.style.width = window.innerWidth/2 + "px";
-        // img.style.height = window.innerwidth/2 + "px";
-        -->
+  buttons.forEach(b =>
+    b.classList.toggle("active", b.dataset.section === section)
+  );
 
+  sections.forEach(s =>
+    s.classList.toggle("active", s.id === section)
+  );
+}
 
-        
+//Git hub api important
 
-    </script>
-    
+async function loadRepos() {
+  try {
+    const res = await fetch("https://api.github.com/users/YOUR_GITHUB_USERNAME/repos?sort=updated");
+    const repos = await res.json();
+
+    repoList.innerHTML = repos.slice(0, 6).map(repo => `
+      <div class="project">
+        <strong>${repo.name}</strong><br/>
+        <a href="${repo.html_url}" target="_blank">Code</a>
+        ${repo.homepage ? ` | <a href="${repo.homepage}" target="_blank">Live</a>` : ""}
+      </div>
+    `).join("");
+
+  } catch (e) {
+    repoList.innerHTML = "Failed to load projects.";
+  }
+}
+
+//Theme Toggle
+
+const toggle = document.getElementById("themeToggle");
+
+function setTheme(mode) {
+  document.body.classList.toggle("light", mode === "light");
+  localStorage.setItem("theme", mode);
+}
+
+toggle.addEventListener("click", () => {
+  const mode = document.body.classList.contains("light") ? "dark" : "light";
+  setTheme(mode);
+});
+
+//load saved themes
+setTheme(localStorage.getItem("theme") || "dark");
+
+//Events
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    setActive(btn.dataset.section);
+  });
+});
+
+document.addEventListener("keydown", (e) => {
+  const order = ["mission", "projects", "skills", "contact"];
+  let i = order.indexOf(state.active);
+
+  if (e.key === "ArrowDown") i = (i + 1) % order.length;
+  if (e.key === "ArrowUp") i = (i - 1 + order.length) % order.length;
+
+  setActive(order[i]);
+});
+
+//INIT
+setActive("mission");
+loadRepos();
+</script>
+
 </body>
-</html>
+</html> 
